@@ -10,3 +10,12 @@ export const httpHook = async ()=>{
         console.log('error', error);
     }
 }
+
+export const dailyData = async() => {
+    try{
+        const response = await axios.get(`${url}/daily`);
+        return response
+    }catch(error){
+        console.log(error)
+    }
+}
