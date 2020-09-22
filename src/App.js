@@ -7,11 +7,10 @@ import Select from './components/Select/Select';
 
 import styles from './App.module.css';
 
-import { httpHook, dailyData } from './api/httphook';
+import { httpHook } from './api/httphook';
 
 function App() {
   const [data, setData] = useState(null);
-  const [dataHistory, setDataHistory] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,13 +20,6 @@ function App() {
     fetchData();
   }, [data]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await dailyData();
-      setDataHistory(response.data);
-    };
-    fetchData();
-  }, [dataHistory]);
 
   return (
     <div className={styles.container}>
@@ -53,9 +45,7 @@ function App() {
           />
         </Grid>
       )}
-      {dataHistory && (
-        <Chart data={dataHistory}/>
-      )}
+      <Chart/>
     </div>
   );
 }
