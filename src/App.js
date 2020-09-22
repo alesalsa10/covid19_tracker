@@ -45,6 +45,7 @@ function App() {
           />
         </Grid>
       )}
+      <Select/>
       <Chart/>
     </div>
   );

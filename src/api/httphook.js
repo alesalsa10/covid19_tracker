@@ -30,9 +30,7 @@ export const getCountries = async () => {
   try {
     const response = await axios.get(`${url}/countries`);
 
-    const countries = response.data.countries.map((country) => ({
-      country: country.name,
-    }));
+    const countries = response.data.countries.map(country => country.name)
     return countries;
   } catch (error) {
     console.log('error', error);
