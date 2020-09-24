@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Chart from './components/Chart/Chart';
 import Card from './components/Card/Card';
 import { parseISO, format } from 'date-fns';
 import { Grid } from '@material-ui/core';
@@ -19,7 +18,6 @@ function App() {
     };
     fetchData();
   }, [data]);
-
 
   return (
     <div className={styles.container}>
@@ -45,8 +43,7 @@ function App() {
           />
         </Grid>
       )}
-      <Select/>
-      <Chart/>
+      <Select />
     </div>
   );
 }

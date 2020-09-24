@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Select as SelectStyle, MenuItem, Grid } from '@material-ui/core';
 import { getCountries } from '../../api/httphook';
+import Chart from '../Chart/Chart';
 
 const Select = () => {
   const [countries, setCountries] = useState([]);
+  const [country, setCountry] = useState('Global');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,17 +15,24 @@ const Select = () => {
     fetchData();
   }, [countries]);
 
+  const handleChange = (e) => {
+    setCountry(e.target.value);
+    //if(e.target.value !== 'Global')
+  };
+
   return (
-    <Grid container spacing={0} alignItems='center' justify='center'>
-      <Grid item xs={8} md={6} >
+    <div>
+      <Grid container spacing={0} alignItems='center' justify='center'>
+      <Grid item xs={8} md={6}>
         <SelectStyle
           labelId='country-picker'
           id='country-picker'
-          value='global'
+          value={country}
           key='country-picker'
           fullWidth={true}
+          onChange={handleChange}
         >
-          <MenuItem value='global' key='global-key'>
+          <MenuItem value={'Global'} key='global-key'>
             Global
           </MenuItem>
           {countries.map((country) => (
@@ -34,6 +43,9 @@ const Select = () => {
         </SelectStyle>
       </Grid>
     </Grid>
+    <Chart country={country} />
+    </div>
+    
   );
 };
 

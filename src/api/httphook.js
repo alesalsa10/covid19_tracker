@@ -40,7 +40,7 @@ export const getCountries = async () => {
 export const getCountryInfo = async(country) => {
   try{
     const response = await axios.get(`${url}/countries/${country}`)
-
+    return response.data;
 
   }catch(error){
     console.log(error)
