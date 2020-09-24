@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Card from './components/Card/Card';
-import { parseISO, format } from 'date-fns';
-import { Grid } from '@material-ui/core';
 import Select from './components/Select/Select';
 
 import styles from './App.module.css';
@@ -21,29 +18,7 @@ function App() {
 
   return (
     <div className={styles.container}>
-      {data && (
-        <Grid container justify='center'>
-          <Card
-            category='Infected'
-            numbers={data.confirmed.value}
-            date={format(parseISO(data.lastUpdate), 'PPPP').toString()}
-            text='Number of active cases of COVID-19'
-          />
-          <Card
-            category='Recovered'
-            numbers={data.recovered.value}
-            date={format(parseISO(data.lastUpdate), 'PPPP').toString()}
-            text='Number of recoberies from COVID-19'
-          />
-          <Card
-            category='Deaths'
-            numbers={data.deaths.value}
-            date={format(parseISO(data.lastUpdate), 'PPPP').toString()}
-            text='Number of deaths caused by COVID-19'
-          />
-        </Grid>
-      )}
-      <Select />
+      <Select/>
     </div>
   );
 }

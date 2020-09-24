@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Line, Bar } from 'react-chartjs-2';
 import { dailyData, getCountryInfo } from '../../api/httphook';
 import { Grid } from '@material-ui/core';
+//import Card from '../Card/Card';
 
 import styles from './Chart.module.css';
 
@@ -28,7 +29,7 @@ export default function Chart(country) {
         labels: ['Infected', 'Recovered', 'Deaths'],
         datasets: [
           {
-            label: 'Cases',
+            label: `Cases in ${country.country}`,
             data: [
               countryInfo.confirmed.value,
               countryInfo.recovered.value,
@@ -72,6 +73,7 @@ export default function Chart(country) {
   return (
     <div className={styles.graph}>
       <Grid container alignItems='center' justify='center'>
+
         <Grid item xs={12} md={8}>{country.country === 'Global' ? lineGraph : barGraph}</Grid>
       </Grid>
     </div>
