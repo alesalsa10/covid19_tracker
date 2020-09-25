@@ -35,7 +35,7 @@ const Card = ( country ) => {
             item
             component={CardStyle}
             xs={12}
-            md={3}
+            md={2}
             className={cx(styles.card, styles.Infected)}
           >
             <CardContent>
@@ -63,7 +63,7 @@ const Card = ( country ) => {
             item
             component={CardStyle}
             xs={12}
-            md={3}
+            md={2}
             className={cx(styles.card, styles.Recovered)}
           >
             <CardContent>
@@ -91,7 +91,7 @@ const Card = ( country ) => {
             item
             component={CardStyle}
             xs={12}
-            md={3}
+            md={2}
             className={cx(styles.card, styles.Deaths)}
           >
             <CardContent>
